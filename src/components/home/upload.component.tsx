@@ -5,11 +5,11 @@ import { miraiHistory, UploadCard } from './uploadcard.component'
 
 import '../../assets/styles/home.css'
 import '../../assets/styles/animate.css'
-  ; (
-    window as unknown as {
-      uploadLimit: number
-    }
-  ).uploadLimit = 1024 * 1024 * 100
+;(
+  window as unknown as {
+    uploadLimit: number
+  }
+).uploadLimit = 1024 * 1024 * 100
 
 export const Upload = () => {
   const [processCard, setProcessCard] = useState([] as File[])
@@ -49,9 +49,7 @@ export const Upload = () => {
           />
         </div>
         <div className='absolute top-0 w-full p-6 text-white'>
-          <div className='w-fit text-6xl font-bold italic'>
-            UPLOAD.SNIPER.TECH
-          </div>
+          <div className='w-fit text-6xl font-bold italic'>UPLOAD.SNIPER.TECH</div>
           <div className='p-4 text-lg'>
             <p className='mb-2'>
               <span className='hidden md:inline'>Drag 'and drop or click</span>
@@ -59,12 +57,11 @@ export const Upload = () => {
             </p>
             <p>Up to 100MiB allowed</p>
             <p>
-              If you want to spectate project or use in app, please contact _StarChaser to use project key
+              If you want to spectate project or use in app, please contact _StarChaser to use
+              project key
             </p>
-            <p>
-              And how to use with api endpoint
-            </p>
-            <p className='uppercase text-red-500 font-bold text-xl'>
+            <p>And how to use with api endpoint</p>
+            <p className='text-xl font-bold uppercase text-red-500'>
               This upload page for use in test and wordpress embed only
             </p>
           </div>

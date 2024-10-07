@@ -44,7 +44,7 @@ export default {
 				const fileName = file.name;
 				const newFileName = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}/${timestamp}-${fileName}`;
 				const key = `${keyMapping[token as keyof typeof keyMapping]}/${newFileName}`;
-				const fileContents = await file.arrayBuffer();  // Convert file to ArrayBuffer
+				const fileContents = await file.arrayBuffer(); // Convert file to ArrayBuffer
 				await env.USER_CONTENT.put(key, fileContents);
 				return new Response(`https://usercontent.sniper.tech/${key}`, {
 					status: 201,
