@@ -55,14 +55,14 @@ body {
 }
 
 .copy {
-  border-color: #00cb00;
-  color: #00cb00;
+  border-color: #cb9500;
+  color: #cb9500;
   background-color: rgba(4, 12, 3, 0.8);
 }
 .copy.coped {
-  border-color: #19ff39;
-  color: #19ff39;
-  background-color: rgba(14, 40, 10, 0.8);
+  border-color: #cb9900;
+  color: white;
+  background-color: rgba(122, 92, 0, 0.8);
 }
 
 .aspect-video {

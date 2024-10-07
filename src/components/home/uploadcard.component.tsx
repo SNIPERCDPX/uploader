@@ -37,7 +37,7 @@ export const UploadCard = ({
   )
   let isUploading = false
 
-  const UPLOAD_ENDPOINT = 'https://up.m1r.ai/upload'
+  const UPLOAD_ENDPOINT = 'https://upload.sniper.tech/upload'
   useEffect(() => {
     if (!file || isUploaded || isUploading || isOK) return
     const LIMIT_SIZE = 1024 * 1024 * 100 // 100MB
@@ -49,7 +49,7 @@ export const UploadCard = ({
         return
       }
       const formData = new FormData()
-      formData.append('uploadType', '0')
+      formData.append('token', 'DEFAULT')
       formData.append('file', file)
 
       try {
@@ -68,7 +68,7 @@ export const UploadCard = ({
 
         const newHistory: miraiHistory = {
           name: file.name,
-          url: response.data.url,
+          url: response.data,
           size: file.size,
           date: new Date(),
         }
@@ -88,9 +88,9 @@ export const UploadCard = ({
   }, [file, isUploaded, preData])
 
   const updateLocalStorage = (newData: miraiHistory) => {
-    const history = JSON.parse(localStorage.getItem('m1rai.history') || '[]')
+    const history = JSON.parse(localStorage.getItem('sniper_up.history') || '[]')
     history.push(newData)
-    localStorage.setItem('m1rai.history', JSON.stringify(history))
+    localStorage.setItem('sniper_up.history', JSON.stringify(history))
   }
   let timer: NodeJS.Timeout
   const handleCopyClick = () => {
@@ -103,7 +103,7 @@ export const UploadCard = ({
 
   return (
     <div
-      className={`relative cursor-pointer rounded border border-[#8ac5ac]`}
+      className={`relative cursor-pointer rounded border border-[#c5b78a]`}
       style={{
         order: index ? -999 - index : 0,
       }}
@@ -120,8 +120,8 @@ export const UploadCard = ({
           }}
           className={`border-2 ${
             copyState ? 'copy coped' : 'copy'
-          } absolute z-30 flex h-full w-full items-center justify-center rounded bg-[#040c03] bg-opacity-80 text-center text-xl font-bold opacity-0 duration-200 hover:opacity-100 text-[${
-            copyState ? '#0aff0a' : '#00cb00'
+          } absolute z-30 flex h-full w-full items-center justify-center rounded bg-[#0c0a03] bg-opacity-80 text-center text-xl font-bold opacity-0 duration-200 hover:opacity-100 text-[${
+            copyState ? '#cb9500' : '#0c0a03'
           }]`}
         >
           {copyState ? 'COPIED!' : 'CLICK TO COPY'}
@@ -132,7 +132,7 @@ export const UploadCard = ({
           width: `${progress}%`,
           backgroundColor:
             progress < 100
-              ? 'rgba(0, 255, 0, 0.3)'
+              ? 'rgba(203, 149, 0, 0.3)'
               : errorMessage
                 ? 'rgba(255, 0, 0, 0.3)'
                 : !isOK

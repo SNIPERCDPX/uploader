@@ -5,15 +5,15 @@ import { miraiHistory, UploadCard } from './uploadcard.component'
 
 import '../../assets/styles/home.css'
 import '../../assets/styles/animate.css'
-;(
-  window as unknown as {
-    uploadLimit: number
-  }
-).uploadLimit = 1024 * 1024 * 100
+  ; (
+    window as unknown as {
+      uploadLimit: number
+    }
+  ).uploadLimit = 1024 * 1024 * 100
 
 export const Upload = () => {
   const [processCard, setProcessCard] = useState([] as File[])
-  const local = localStorage.getItem('m1rai.history')
+  const local = localStorage.getItem('sniper_up.history')
   const [finishedCard, setFinishedCard] = useState([])
 
   const onUploadFile = (files: File[]) => {
@@ -28,7 +28,7 @@ export const Upload = () => {
   })
   useEffect(() => {
     if (!local) {
-      localStorage.setItem('m1rai.history', JSON.stringify([]))
+      localStorage.setItem('sniper_up.history', JSON.stringify([]))
     }
     setFinishedCard(JSON.parse(local || JSON.stringify([])).reverse())
   }, [])
@@ -36,9 +36,6 @@ export const Upload = () => {
   return (
     <>
       <main>
-        <div className='absolute right-0 z-50 mr-4 mt-4 cursor-pointer rounded border bg-[#040c03] bg-opacity-80 px-2 py-1 font-bold text-white duration-200 hover:border-[#0aff0a] hover:bg-[#0aff0a] hover:text-black'>
-          Account (Soon)
-        </div>
         <div
           {...getRootProps()}
           className={`${isDragActive ? 'z-50 opacity-100' : 'z-30 opacity-0'} fixed flex h-screen w-screen items-center justify-center bg-black bg-opacity-80 duration-200`}
@@ -53,51 +50,23 @@ export const Upload = () => {
         </div>
         <div className='absolute top-0 w-full p-6 text-white'>
           <div className='w-fit text-6xl font-bold italic'>
-            M1RAI
-            <span className='ml-2 text-sm font-normal'>(up.mir.ai)</span>
+            UPLOAD.SNIPER.TECH
           </div>
           <div className='p-4 text-lg'>
-            <p>Welcome to m1rai up</p>
             <p className='mb-2'>
               <span className='hidden md:inline'>Drag 'and drop or click</span>
               <span className='inline md:hidden'>Touch</span> anywhere to upload
             </p>
-            <div className='hidden md:block'>
-              <p>Upload using cURL:</p>
-              <p className='mb-16 text-base italic sm:mb-14 md:mb-8'>
-                <span className='absolute z-40 select-all'>
-                  curl --upload-file ./hello.txt https://up.m1r.ai/upload
-                </span>
-              </p>
-              <p>
-                ShareX:{' '}
-                <a
-                  href='https://m1r.ai/9/406os.sxcu'
-                  target='_blank'
-                  rel='noreferrer'
-                  className='absolute z-40 ml-2 underline'
-                >
-                  Click here
-                </a>
-              </p>
-            </div>
-            <p className='absolute z-40 mb-2'></p>
             <p>Up to 100MiB allowed</p>
-            <div className='mt-4 hidden md:block'>
-              <p>
-                Need temporary file url?
-                <br />
-                Check out s3kai for temporary file upload:{' '}
-                <a
-                  rel='noreferrer'
-                  href='https://up.s3k.ai'
-                  target='_blank'
-                  className='absolute z-40 ml-2 underline'
-                >
-                  Click here
-                </a>
-              </p>
-            </div>
+            <p>
+              If you want to spectate project or use in app, please contact _StarChaser to use project key
+            </p>
+            <p>
+              And how to use with api endpoint
+            </p>
+            <p className='uppercase text-red-500 font-bold text-xl'>
+              This upload page for use in test and wordpress embed only
+            </p>
           </div>
           <div className='px-4 py-2'>
             {(finishedCard && finishedCard?.length > 0) ||
